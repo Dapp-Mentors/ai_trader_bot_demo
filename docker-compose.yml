@@ -1,0 +1,41 @@
+version: '3.7'
+
+networks:
+  public_network:
+  global_db_network:
+    external: true # Declares global_db_network as an existing network
+
+volumes:
+  backend_data:
+
+services:
+  frontend:
+    build:
+      context: ./frontend
+      dockerfile: Dockerfile
+    container_name: frontend_service
+    restart: unless-stopped
+    ports:
+      - '3003:3000'
+    networks:
+      - public_network
+    env_file:
+      - .env
+    depends_on:
+      - backend
+
+  backend:
+    build:
+      context: ./backend
+      dockerfile: Dockerfile
+    container_name: backend_service
+    restart: unless-stopped
+    networks:
+      - public_network
+      - global_db_network # Ensure backend_service can reach mongodb_service
+    env_file:
+      - .env
+    volumes:
+      - backend_data:/app/data
+    ports:
+      - '8005:8000'
