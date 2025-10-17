@@ -217,7 +217,7 @@ Full details in whitepaper Appendix.
 
 - Website: [trader.dappmentors.org](https://trader.dappmentors.org)
 - Email: [contact@dappmentors.org](mailto:contact@dappmentors.org)
-- X: [@DappMentors](https://x.com/DappMentors)
+- X: [@DappMentors](https://x.com/iDaltonic)
 
 Contributions welcome for docs/bug fixes (non-core). Star/fork for support!
 
